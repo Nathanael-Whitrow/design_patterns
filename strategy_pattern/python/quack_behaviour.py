@@ -1,18 +1,18 @@
 import abc
 
-class QuakBehaviour(abc.ABC):
+class QuackBehaviour(abc.ABC):
 	@abc.abstractmethod
 	def quack(self):
 		""" Makes your duck quak """
 
-class Quack(QuakBehaviour):
+class Quack(QuackBehaviour):
 	def quack(self):
 		print("Quak!")
 
-class Squeak(QuakBehaviour):
+class Squeak(QuackBehaviour):
 	def quack(self):
 		print("Squeak!")
 
-class MuteQuack(QuakBehaviour):
+class MuteQuack(QuackBehaviour):
 	def quack(self):
 		print("...")
