@@ -8,3 +8,6 @@ main:
 
 dog:
 	clang++ -c -o Dog.o --std=c++17 Dog.cpp
+
+clean:
+	rm main.out main.o Dog.o

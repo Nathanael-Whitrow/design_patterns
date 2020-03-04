@@ -7,7 +7,7 @@
 int main()
 {
 	Dog* socks = new Dog();
-	socks->bark();
+	socks->makeNoise();
 	return 0;
 }
 
