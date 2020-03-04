@@ -1,6 +1,6 @@
 
 
-public class Squeak implements QuackBehaviour
+public class Sqeak implements QuackBehavior
 {
 	public void quack()
 	{

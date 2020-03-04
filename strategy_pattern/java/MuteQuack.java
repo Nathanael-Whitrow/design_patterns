@@ -1,4 +1,4 @@
-public class MuteQuack implements QuackBehaviour
+public class MuteQuack implements QuackBehavior
 {
 	public void quack()
 	{
