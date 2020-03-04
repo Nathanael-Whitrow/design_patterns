@@ -1,5 +1,4 @@
 from duck_zoo import *
-from fly_behaviour import *
 
 def print_heading(message):
 	print("="*30)
