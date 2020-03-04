@@ -1,0 +1,9 @@
+# Python Cache
+__pycache__/
+
+# Compiled Java Files
+*.class
+
+# compiled c files
+*.o
+*.out
