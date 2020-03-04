@@ -1,5 +1,5 @@
 import abc
-from quak_behaviour import QuakBehaviour
+from quack_behaviour import QuackBehaviour
 from fly_behaviour import FlyBehaviour
 
 class Duck(abc.ABC):
@@ -26,5 +26,5 @@ class Duck(abc.ABC):
 			self._fly_behaviour = fly_behaviour
 
 	def set_quack_behaviour(self, quack_behaviour):
-		if isinstance(quack_behaviour, QuakBehaviour):
+		if isinstance(quack_behaviour, QuackBehaviour):
 			self._quak_behaviour = quack_behaviour
