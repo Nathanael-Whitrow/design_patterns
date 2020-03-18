@@ -9,13 +9,13 @@ class Subject(abc.ABC):
 	def removeObserver(self):
 		''' Remove a subscriber so they will no longer be notified '''
 	@abc.abstractmethod
-	def notiyObservers(self):
+	def notifyObservers(self):
 		''' Notify all the current subscribers '''
 
 
 class WeatherData(Subject):
 	def __init__(self):
-		self._observers = {}
+		self._observers = set()
 		self._temperature = 0.0
 		self._humidity = 0.0
 		self._pressure = 0.0
@@ -31,10 +31,10 @@ class WeatherData(Subject):
 			observer.update(self._temperature, self._humidity, self._pressure)
 
 	def measurementsChanged(self):
-		notifyObservers()
+		self.notifyObservers()
 
 	def setMeasurements(self, temperature, humidity, pressure):
 		self._temperature = temperature
 		self._humidity = humidity
 		self._pressure = pressure
-		measurementsChanged()
+		self.measurementsChanged()
