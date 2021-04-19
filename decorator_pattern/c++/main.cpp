@@ -12,8 +12,9 @@ public:
     Beverage() {};
     virtual ~Beverage() {};
 
-    virtual float  getCost()        const = 0; // pure virtual makes this class abstract
-    virtual string getDescription() const = 0; // pure virtual makes this class abstract
+    // pure virtual makes this class abstract
+    virtual float  getCost()        const = 0;
+    virtual string getDescription() const = 0;
 
 protected:
     string description;
@@ -68,14 +69,11 @@ public:
 
 int main()
 {
-    Beverage* first_drink = new Espresso();
-    cout  << first_drink->getDescription() << endl;
-    Beverage* second_drink = new Mocha(first_drink);
-    cout << second_drink->getDescription() << endl;
+    unique_ptr<Beverage> first_drink = make_unique<Espresso>();
+    cout << "ordering one " << first_drink->getDescription() << " for " << first_drink->getCost() << endl;
 
-
-    delete first_drink;
-    delete second_drink;
+    unique_ptr<Beverage> second_drink = make_unique<Mocha>(first_drink.get());
+    cout << "Making it a " << second_drink->getDescription() << " for " << second_drink->getCost() << endl;
 
     return 0;
 }
