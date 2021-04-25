@@ -94,6 +94,18 @@ protected:
     unique_ptr<Beverage> drink_;
 };
 
+class Cappucino : public Beverage {
+public:
+    Cappucino(unique_ptr<Beverage> drink)
+        : drink_ { move(drink) } {};
+
+    double getCost() const override { return this->drink_->getCost() + 2.00; }
+    string getDescription() const override { return this->drink_->getDescription() + " with cappucino milk "; }
+
+protected:
+    unique_ptr<Beverage> drink_;
+};
+
 int main()
 {
     const Beverage& beverage1 = Espresso {};
@@ -119,7 +131,11 @@ int main()
     // trying out the Latte decorator
     unique_ptr<Beverage> beverage3 { make_unique<Espresso>() };
     beverage3 = make_unique<Latte>(move(beverage3));
-    cout << "ordering one " << beverage3->getDescription() << " for $" << beverage3->getCost() << endl;
+    cout << "ordering one " << beverage3->getDescription() << "for $" << beverage3->getCost() << endl;
+
+    unique_ptr<Beverage> beverage4 { make_unique<Espresso>() };
+    beverage4 = make_unique<Cappucino>(move(beverage4));
+    cout << "ordering one " << beverage4->getDescription() << "for $" << beverage3->getCost() << endl;
 
     return 0;
 }
